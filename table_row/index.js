@@ -130,9 +130,54 @@ form.addEventListener('submit',function (e){
     const name2=szerzo2.value
     const title2=mu2.value
     /**
-    *  @type {{nationality: string, name: string:, title:string, name2.string, title2:string}}
+    *  @type {{nationality: string, name: string, title:string, name2:string, title2:string}}
     */
     const obj={}
-});
+    obj.nationality=nationality;
+    obj.name=name1;
+    obj.title=title1;
+    obj.name2=name2;
+    obj.title2=title2;
 
+    const tbody=document.getElementById('tbody')
     
+    const tr = document.createElement("tr")
+    const td1 = document.createElement("td")
+    const td2 = document.createElement("td")
+    const td3 = document.createElement("td")
+
+    tbody.appendChild(tr)
+    tr.appendChild(td1)
+    tr.appendChild(td2)
+    tr.appendChild(td3)
+
+    td1.innerText = obj.nationality
+    td2.innerText = obj.name
+    td3.innerText = obj.title
+
+    if(obj.name2 && obj.title2){
+        td1.rowSpan = "2"
+        const tr = document.createElement('tr')
+        tbody.appendChild(tr)
+
+        const td4 = document.createElement("td")
+        tr.appendChild(td4)
+
+        td1.rowSpan = "2"
+        const td5 = document.createElement("td")
+        tr.appendChild(td5)
+        
+        td4.innerText = obj.name2
+        td5.innerText = obj.title2
+    }
+
+    td1.addEventListener('click', function (e){
+        /**
+        * @type {{target:HTMLTableCellElement}[]}
+        */
+        const target=e.target
+        target.classList.add('marked')
+    })
+
+
+});

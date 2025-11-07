@@ -85,4 +85,54 @@ for(const i of arr){
         td4.innerText = i.name2
         td5.innerText = i.title2
     }
+    td1.addEventListener('click', function (e){
+        /**
+        * @type {{target:HTMLTableCellElement}[]}
+        */
+        const target=e.target
+        target.classList.add('marked')
+    })
 }
+/**
+ * @type {{form:HTMLFormElement}}
+ */
+const form=document.getElementById('htmlform')
+form.addEventListener('submit',function (e){
+    e.preventDefault()
+    /**
+     * @type {HTMLFormElement}
+     */
+    const v=e.target
+    /**
+     * @type {HTMLInputElement}
+     */
+    const nemzetiseg=v.querySelector('#nemzetiseg')
+    /**
+     * @type {HTMLInputElement}
+     */
+    const szerzo1=v.querySelector('#szerzo1')
+    /**
+     * @type {HTMLInputElement}
+     */
+    const szerzo2=v.querySelector('#szerzo2')
+    /**
+     * @type {HTMLInputElement}
+     */
+    const mu1=v.querySelector('#mu1')
+    /**
+     * @type {HTMLInputElement}
+     */
+    const mu2=v.querySelector('#mu2')
+
+    const nationality=nemzetiseg.value
+    const name1=szerzo1.value
+    const title1=mu1.value
+    const name2=szerzo2.value
+    const title2=mu2.value
+    /**
+    *  @type {{nationality: string, name: string:, title:string, name2.string, title2:string}}
+    */
+    const obj={}
+});
+
+    
